@@ -101,7 +101,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: quarkusio/quarkus
-          ref: main
+          ref: jakarta-rewrite
           path: quarkus
 
       - name: Cache local Maven repository
@@ -131,7 +131,7 @@ jobs:
           cd quarkus && \
           mvn install -Dsmallrye-graphql.version=$SMALLRYE_VERSION -Dquickly && \
           mvn verify -Dsmallrye-graphql.version=$SMALLRYE_VERSION -Dnative \
-            -pl extensions/smallrye-graphql-client/deployment,extensions/smallrye-graphql-client/runtime,extensions/smallrye-graphql/deployment,extensions/smallrye-graphql/runtime,integration-tests/smallrye-graphql,integration-tests/smallrye-graphql-client
+            -pl extensions/smallrye-graphql-client/deployment,extensions/smallrye-graphql-client/runtime,extensions/smallrye-graphql/deployment,extensions/smallrye-graphql/runtime,integration-tests/smallrye-graphql,integration-tests/smallrye-graphql-client,integration-tests/hibernate-orm-graphql-panache
 
   quality:
     needs: [build]
